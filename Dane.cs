@@ -23,7 +23,7 @@ namespace Belka_Stalowa
             double silaPoprzeczna = double.Parse(textBox2.Text);
             double silaOsiowa = double.Parse(textBox3.Text);
 
-            double Profil = double.Parse(textBox7.Text);
+            string Profil = (textBox7.Text);
             double Wskaznik = double.Parse(textBox6.Text);
             double PoleSci = double.Parse(textBox5.Text);
             double PolePow = double.Parse(textBox4.Text);
@@ -52,27 +52,28 @@ namespace Belka_Stalowa
                 NcRd = PolePow * fy;
                 double wytezenieN = (silaOsiowa*1000) / NcRd;
                 Math.Round(wytezenieN, 2);
-                label21.Text = wytezenieN.ToString();
+                label21.Text = Math.Round(wytezenieN,2).ToString();
             }
             if (radioButton5.Checked)
             {
                 NtRd = PolePow * fy;
                 double wytezenieN = (silaOsiowa*1000) / NtRd;
                 Math.Round(wytezenieN, 2);
-                label22.Text = wytezenieN.ToString();
+                label22.Text = Math.Round(wytezenieN,2).ToString();
             }
             //zginanie
             double Mcrd = 0;
             Mcrd = Wskaznik * fy;
             double wytezenieM = (moment * 1000 * 1000) / Mcrd;
             Math.Round(wytezenieM, 2);
-            label23.Text = wytezenieM.ToString();
+            label23.Text = Math.Round(wytezenieM,2).ToString();
 
             //ścinanie
             double Vpl = 0;
             Vpl = PoleSci / (fy * Math.Sqrt(3));
-
-
+            double wytezenieV = (silaPoprzeczna * 1000 / Vpl);
+            Math.Round(wytezenieV,2);
+            label24.Text = Math.Round(wytezenieV,2).ToString();
         }
     }
 }
